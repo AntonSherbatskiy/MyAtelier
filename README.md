@@ -1,4 +1,4 @@
-# Weatherly
+# MyAtelier
 ___
 This web application was created to manage an atelier outlet. Users can
 order clothing repair and tailoring services by choosing one of the
@@ -14,6 +14,7 @@ and view order history.
 * Electronic customer account
 * Online ordering of tailoring or clothing repair services
 * User account management
+* Email sending service
 * Material inventory management
 * Management of tailoring and clothing repair orders
 * Clothing inventory for available services
@@ -45,5 +46,6 @@ Run docker compose
 docker compose up -d
 ```
 
-Now you have 2 containers in the docker: `backend`, `web-site`;
+Now you have 2 containers in the docker: `backend`, `web-site`
+
 To get to the main page, open your browser and go to http://localhost
