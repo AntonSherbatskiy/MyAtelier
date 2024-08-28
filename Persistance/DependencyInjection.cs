@@ -21,7 +21,6 @@ public static class DependencyInjection
     private static void AddDbContext(IServiceCollection services, ConfigurationManager configurationManager)
     {
         var connectionString = configurationManager.GetConnectionString("DefaultConnectionString");
-        Console.WriteLine(connectionString);
         
         services.AddDbContext<AppDbContext>(
             options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
