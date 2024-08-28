@@ -36,8 +36,6 @@ public static class DependencyInjection
         using (var p = services.BuildServiceProvider())
         {
             var conf = p.GetRequiredService<IOptions<EmailMessageSenderOptions>>().Value;
-            Console.WriteLine(conf.Email);
-            Console.WriteLine(conf.Password);
         }
         
         services.AddScoped<IAsyncMessageSender, EmailAsyncMessageSender>();
