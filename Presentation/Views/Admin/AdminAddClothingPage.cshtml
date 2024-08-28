@@ -1,0 +1,68 @@
+@model Application.Usecases.Commands.Clothing.AddClothingCommand
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add clothing</title>
+    @await Html.PartialAsync("_BootstrapPartial")
+    <link rel="stylesheet" href="~/css/admin-add-clothing.css">
+    <style>
+        .column-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        html {
+            height: 100%;
+        }
+        
+        .style-n ul li {
+            list-style-type: none;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        
+        .text-bigger {
+            font-size: 18px;
+        }
+        
+        .navbar-custom .navbar-brand {
+            color: #fff;
+        }
+        .navbar-custom .navbar-nav .nav-link {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+@await Html.PartialAsync("_AdminHeaderPartial")
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 center-text">
+            <h2 class="text-center mb-4">Clothing details</h2>
+            <div asp-validation-summary="ModelOnly" class="text-center text-danger style-n h4"></div>
+            <form asp-controller="Clothing" asp-action="AddClothing">
+                <div class="mb-3">
+                    <label for="clothingName" class="form-label">Clothing name</label>
+                    <input asp-for="Name" type="text" placeholder="Enter clothing name" class="form-control" id="clothingName">
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mb-4">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("_FooterPartial")
+</body>
+</html>

@@ -1,0 +1,50 @@
+@model Application.Usecases.Commands.Services.Repairing.AddRepairingServiceCommand
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add repairing service</title>
+    @await Html.PartialAsync("_BootstrapPartial")
+    <link rel="stylesheet" href="~/css/add-repairing-service.css">
+</head>
+<body>
+@await Html.PartialAsync("_AdminHeaderPartial")
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="text-center mb-4">Repairing Service Details</h2>
+            <div asp-validation-summary="ModelOnly" class="center-text text-danger style-n h4"></div>
+            <form asp-controller="Admin" asp-action="AddRepairingService">
+                <div class="mb-3">
+                    <label for="clothingName" class="form-label">Clothing name</label>
+                    <input asp-for="ClothingName" type="text" placeholder="Enter clothing name" class="form-control" id="clothingName">
+                    <span class="text-danger" asp-validation-for="ClothingName"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input asp-for="Price" type="number" placeholder="Enter price" class="form-control" id="price">
+                    <span class="text-danger" asp-validation-for="Price"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="estimatedDays" class="form-label">Estimated days</label>
+                    <input asp-for="EstimatedDays" type="number" placeholder="Enter estimated days" class="form-control" id="estimatedDays">
+                    <span class="text-danger" asp-validation-for="EstimatedDays"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea rows="4" maxlength="200" asp-for="Description" placeholder="Enter description" class="w-100" name="description" id="description"></textarea>
+                    <span class="text-danger" asp-validation-for="Description"></span>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mb-4">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("_FooterPartial")
+</body>
+</html>

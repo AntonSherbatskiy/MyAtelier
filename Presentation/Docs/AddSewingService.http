@@ -1,0 +1,12 @@
+POST localhost:5098/Services/sewing/add
+Content-Type: application/json
+
+{
+  "Price": 2000,
+  "Description": "Sewing your suit",
+  "MaterialNeeded": 100,
+  "MaterialName": "Cotton",
+  "ClothingName": "Suit",
+  "Size": "S",
+  "EstimatedDays": 2
+}

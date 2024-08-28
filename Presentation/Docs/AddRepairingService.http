@@ -1,0 +1,10 @@
+POST http://localhost:5098/Services/repairing/add
+Content-Type: application/json
+
+{
+  "Price": "100",
+  "EstimatedDays": 3,
+  "ClothingName": "Jacket",
+  "Description": "Repair your suit",
+  "AdditionalInfo": "Please bring your clothes in 3 days"
+}

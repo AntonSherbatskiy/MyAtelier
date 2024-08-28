@@ -1,0 +1,64 @@
+@model Application.Models.PlaceSewingOrderModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    @await Html.PartialAsync("_BootstrapPartial")
+    <link rel="stylesheet" href="~/css/service.css">
+</head>
+<body>
+@await Html.PartialAsync("_HeaderNavStaticPartial")
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="text-center mb-4">Service Details</h2>
+            <div asp-validation-summary="ModelOnly" class="center-text text-danger style-n h4"></div>
+            <form asp-controller="Order" asp-action="PlaceSewingServiceOrder">
+                <input asp-for="Id" class="d-none">
+                <input asp-for="ClothingModel" class="d-none">
+                <div class="mb-3">
+                    <label for="serviceName" class="form-label">Service Name</label>
+                    <input asp-for="ServiceName" type="text" class="form-control" id="serviceName" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="servicePrice" class="form-label">Service Price</label>
+                    <input asp-for="Price" type="text" class="form-control" id="servicePrice" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="clothingName">Clothing name</label>
+                    <input id="clothingName" asp-for="ClothingModel.Name" class="form-control" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="servicePrice" class="form-label">Size</label>
+                    <input asp-for="Size" type="text" class="form-control" id="size" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="material" class="form-label">Material</label>
+                    <input asp-for="MaterialModel.Name" type="text" class="form-control" id="material" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="completionDays" class="form-label">Approximate Completion Days</label>
+                    <input asp-for="EstimatedDays" type="number" class="form-control" id="completionDays" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="serviceDescription" class="form-label">Service Description</label>
+                    <textarea asp-for="Description" class="form-control" id="serviceDescription" rows="4" readonly></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="additionalInfo" class="form-label">Additional Information</label>
+                    <textarea asp-for="AdditionalInfo" maxlength="200" class="form-control" id="additionalInfo" rows="4" placeholder="Enter additional information"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mb-4">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("_FooterPartial")
+</body>
+</html>

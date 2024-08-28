@@ -1,0 +1,8 @@
+POST localhost:5098/Orders/repairing-services
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJGaXJzdE5hbWUiOiJBbnRvbiIsIkxhc3ROYW1lIjoiU2hlcmJhdHNraXkiLCJFbWFpbCI6InNoZXJiYXRzc2tpeUBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhZG1pbiIsImV4cCI6MTcwMjg2MDczMSwiaXNzIjoiTXlBdGVsaWVyIiwiYXVkIjoiTXlBdGVsaWVyIn0.skKF16czt0uxdmvdBo2CZC3GK-GiHHQ_xs67vmaLY4I
+
+{
+  "ServiceId": 3,
+  "ServiceCategory": "Repairing"
+}

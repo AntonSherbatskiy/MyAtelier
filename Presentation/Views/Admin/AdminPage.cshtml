@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin page</title>
+    @await Html.PartialAsync("_BootstrapPartial")
+    <link rel="stylesheet" href="~/css/admin.css">
+</head>
+<body>
+
+@await Html.PartialAsync("_AdminHeaderPartial")
+
+<div class="container d-flex flex-column justify-content-center">
+    <div class="row">
+        <div class="col-md my-3 text-dec-none">
+            <a asp-controller="Admin" asp-action="GetAdminAccountsPage">
+                <div class="card border border-primary border-2">
+                    <div class="card-header bg-primary text-light text-center">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="card-body text-center">
+                        <h4 class="card-title text-center py-4">Accounts</h4>
+                        <a asp-controller="Admin" asp-action="GetAdminAccountsPage" class="w-100 text-white btn btn-primary rounded-5">Manage</a>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md my-3 text-dec-none">
+            <a asp-controller="Admin" asp-action="GetAdminServicesPage">
+                <div class="card border border-primary border-2">
+                    <div class="card-header bg-success text-light text-center">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="card-body text-center">
+                        <h4 class="card-title text-center py-4">Services</h4>
+                        <a asp-controller="Admin" asp-action="GetAdminServicesPage" class="w-100 text-white btn btn-primary rounded-5">Manage</a>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md my-3 text-dec-none">
+            <a asp-controller="Admin" asp-action="GetAdminWarehousePage">
+                <div class="card border border-primary border-2">
+                    <div class="card-header bg-warning text-dark text-center">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <div class="card-body text-center">
+                        <h4 class="card-title text-center py-4">Warehouse</h4>
+                        <a asp-controller="Admin" asp-action="GetAdminWarehousePage" class="w-100 text-white btn btn-primary rounded-5">Manage</a>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md my-3 text-dec-none">
+                    <a asp-controller="Admin" asp-action="GetAdminClothingPage">
+                        <div class="card border border-primary border-2">
+                            <div class="card-header bg-danger text-dark text-center">
+                                <i class="fas fa-shirt"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h4 class="card-title text-center py-4">Clothing</h4>
+                                <a asp-controller="Admin" asp-action="GetAdminClothingPage" class="w-100 text-white btn btn-primary rounded-5">Manage</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+        <div class="col-md my-3 text-dec-none">
+            <a asp-controller="Admin" asp-action="GetAdminOrdersPage">
+                <div class="text-dec-none card border border-primary border-2">
+                    <div class="card-header bg-info text-light text-center">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="card-body text-center">
+                        <h4 class="card-title text-center py-4">Orders</h4>
+                        <a asp-controller="Admin" asp-action="GetAdminOrdersPage" class="w-100 text-white btn btn-primary rounded-5">Manage</a>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("_FooterPartial")
+</body>
+</html>

@@ -1,0 +1,22 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Задаем минимальную высоту страницы на весь видимый экран */
+}
+
+.card-header i {
+    font-size: 4rem;
+}
+.container {
+    flex: 1; /* Растягиваем контейнер, чтобы занять всю доступную область */
+}
+
+.text-dec-none a {
+    text-decoration: none;
+    color: black;
+}
+
+footer {
+    width: 100%;
+    bottom: 0;
+}

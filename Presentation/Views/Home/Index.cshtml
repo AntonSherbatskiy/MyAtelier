@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyAtelier</title>
+    @await Html.PartialAsync("_BootstrapPartial")
+    <link rel="stylesheet" href="~/css/home.css">
+</head>
+<body>
+@await Html.PartialAsync("_HeaderNavDynamicPartial")
+
+<section id="services" class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center mb-4">
+                <h2 class="mb-4">Services</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5 col-xl-5 mb-4">
+                <div class="shadow-sm card border-2 border-primary h-100 column-image">
+                    <a asp-controller="Services" asp-action="GetSewingServicesGroupedPage" class="text-dec-none">
+                        <img src="sewing.png" class="card-img-top" alt="Sewing services">
+                        <div class="center-text card-body d-flex flex-column">
+                            <h5 class="card-title mb-3">Sewing</h5>
+                            <p class="text-muted card-text flex-grow-1">Sew your clothes in the shortest possible time</p>
+                            <a asp-controller="Services" asp-action="GetSewingServicesGroupedPage" class="btn btn-primary mt-3">About</a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-5 col-xl-5 mb-4">
+                <div class="shadow-sm card border-2 border-primary h-100 column-image">
+                    <a asp-controller="Services" asp-action="GetRepairingServicesPage" class="text-decoration-none text-black">
+                        <img src="repairing.png" class="card-img-top" alt="Service 2">
+                        <div class="center-text card-body d-flex flex-column">
+                            <h5 class="card-title mb-3">Repairing</h5>
+                            <p class="text-muted card-text flex-grow-1">Repair your clothes as quickly as possible</p>
+                            <a asp-controller="Services" asp-action="GetRepairingServicesPage" class="btn btn-primary mt-3">About</a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about-us" class="my-3 py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="about-us.png" class="w-100 h-auto shadow-lg rounded img-fluid" alt="About us">
+            </div>
+            <div class="col-md-6 d-flex align-items-center text-end">
+                <div>
+                    <h1 class="mt-5 text-primary mb-4">About Us</h1>
+                    <p class="text-bigger">At our fashion studio, we craft styles that define individuality and elegance. With a passion for creativity and an eye for detail, we specialize in curating bespoke designs that resonate with your unique persona. Our dedicated team of artisans and designers collaborates to bring your fashion aspirations to life, from conceptualization to the final creation. We thrive on the artistry of fashion, aiming to provide distinctive and tailored experiences that celebrate your style journey.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="benefits" class="my-3 py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 d-flex align-items-center">
+                <div>
+                    <h1 class="text-primary mb-4">Benefits</h1>
+                    <p class="text-bigger">Choose our atelier for a bespoke experience that reflects your unique style. Our artisans craft exclusive, high-quality pieces tailored to your individual preferences. With a commitment to exceptional craftsmanship and personalized service, we offer a one-of-a-kind journey, ensuring satisfaction and the embodiment of your distinct taste.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img src="benefits.png" class="w-100 h-auto rounded img-fluid shadow-lg" alt="Image 3">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contacts" class="my-3 bg-light">
+    <div class="container py-5">
+        <h2 class="text-center mb-4 text-primary">Contacts</h2>
+
+        <p class="text-center text-bigger mb-5">We are always glad to answer you as soon as possible</p>
+
+        <div class="row mt-4">
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <i class="text-primary fas fa-phone fa-2x my-1"></i>
+                    </div>
+                    <div class="card-body py-4">
+                        <h5 class="text-muted">Phone number</h5>
+                        <p class="mt-4 text-bigger card-text">0986692035</p> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <i class="text-primary fas fa-envelope fa-2x my-1"></i>
+                    </div>
+                    <div class="card-body py-4">
+                        <h5 class="text-muted">Email</h5>
+                        <p class="mt-4 text-bigger card-text">example@example.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <i class="text-primary fas fa-map-marker-alt fa-2x my-1"></i>
+                    </div>
+                    <div class="card-body py-4">
+                        <h5 class="text-muted">Address</h5>
+                        <p class="mt-4 text-bigger card-text">Kyiv, Maksymovycha</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@await Html.PartialAsync("_FooterPartial")
+</body>
+</html>

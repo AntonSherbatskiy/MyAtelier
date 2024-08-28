@@ -1,0 +1,53 @@
+@model IEnumerable<Application.Models.SewingServiceModel>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sewing services</title>
+    @await Html.PartialAsync("_BootstrapPartial")
+    <link rel="stylesheet" href="~/css/repairing-services.css">
+</head>
+<body>
+
+@await Html.PartialAsync("_HeaderNavStaticPartial")
+
+<section id="services" class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center mb-4">
+                <h2 class="mb-4">@Model.First().ClothingModel.Name Sewing</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            @if (Model == null || !Model.Any())
+            {
+                <h1>No sewing services available</h1>
+            }
+            @foreach (var s in Model)
+            {
+                <div class="col-md-7 col-lg-5 col-xl-4 col-xxl-3 mb-4">
+                    <div class="shadow-sm card border-primary h-100 column-image">
+                        <a asp-controller="Order" asp-route-id="@s.Id" asp-action="GetSewingServiceDetailsPage" class="text-dec-none text-center">
+                            <div class="card-header py-3">
+                                <i class="text-primary fas fa-solid fa-shirt fa-2x my-1"></i>
+                            </div>
+                            <div class="center-text card-body d-flex flex-column">
+                                <h5 class="card-title mt-3">@s.ClothingModel.Name sewing</h5>
+                                <p class="text-muted card-text flex-grow-1 mt-3">@s.Description</p>
+                                <h3 class="text-primary">@s.ClothingSize</h3>
+                                <p class="mt-3">Material: @s.MaterialModel.Name</p>
+                                <a asp-controller="Order" asp-route-id="@s.Id" asp-action="GetSewingServiceDetailsPage" class="btn btn-primary mt-3">About</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+@await Html.PartialAsync("_FooterPartial")
+</body>
+</html>

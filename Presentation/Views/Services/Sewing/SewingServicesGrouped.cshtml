@@ -1,0 +1,51 @@
+@model IEnumerable<Application.Models.SewingServicesGroupedModel>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PersistanceUser Profile</title>
+    @await Html.PartialAsync("_BootstrapPartial")
+    <link rel="stylesheet" href="~/css/sewing-services.css">
+</head>
+<body>
+
+@await Html.PartialAsync("_HeaderNavStaticPartial")
+
+<section id="services" class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center mb-4">
+                <h2 class="mb-4">Sewing Services</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            @if (Model == null || !Model.Any())
+            {
+                <h1>No sewing services available</h1>
+            }
+            @foreach (var group in Model)
+            {
+                <div class="col-md-7 col-lg-5 col-xl-4 col-xxl-3 mb-4">
+                    <div class="shadow-sm card border-primary h-100 column-image">
+                        <a asp-controller="Services" asp-route-clothingName="@group.ClothingName" asp-action="GetSewingServicesInGroupPage" class="text-dec-none text-center">
+                            <div class="card-header py-3">
+                                <i class="text-primary fas fa-solid fa-shirt fa-2x my-1"></i>
+                            </div>
+                            <div class="center-text card-body d-flex flex-column">
+                                <h5 class="card-title my-3">@group.ClothingName sewing</h5>
+                                <p class="text-muted card-text flex-grow-1 mt-5">Sew a @group.ClothingName in the fastest terms possible</p>
+                                <a asp-controller="Services" asp-route-clothingName="@group.ClothingName" asp-action="GetSewingServicesInGroupPage" class="btn btn-primary mt-5">About</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+@await Html.PartialAsync("_FooterPartial")
+</body>
+</html>

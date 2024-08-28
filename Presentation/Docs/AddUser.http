@@ -1,0 +1,10 @@
+POST http://localhost:5098/Admin/users/add
+Content-Type: application/json
+
+{
+  "FirstName": "Anton",
+  "LastName": "Sherbatskiy",
+  "Email": "glob@gmail.com",
+  "Password": "kulik2004",
+  "RoleName": "Admin"
+}

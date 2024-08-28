@@ -1,0 +1,91 @@
+@model Application.Models.AddUserModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add user</title>
+    @await Html.PartialAsync("_BootstrapPartial")
+    <style>
+        .center-text {
+            text-align: center;
+        }
+        
+        .style-n ul li {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .style-n ul {
+            padding-left: 0;
+        }
+        
+        .column-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        html {
+            height: 100%;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        
+        .navbar-custom .navbar-brand {
+            color: #fff;
+        }
+        .navbar-custom .navbar-nav .nav-link {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+@await Html.PartialAsync("_AdminHeaderPartial")
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="text-center mb-4">Add user</h2>
+            <div asp-validation-summary="ModelOnly" class="center-text text-danger style-n h4"></div>
+            <form asp-controller="Admin" asp-action="AddAccount">
+                <div class="mb-3">
+                    <label asp-for="FirstName" class="form-label">First name</label>
+                    <input asp-for="FirstName" class="form-control">
+                    <span class="text-danger" asp-validation-for="FirstName"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="LastName" class="form-label">Last name</label>
+                    <input asp-for="LastName" class="form-control">
+                    <span class="text-danger" asp-validation-for="LastName"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">Email</label>
+                    <input asp-for="Email" class="form-control">
+                    <span class="text-danger" asp-validation-for="Email"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="RoleName" class="form-label">Role</label>
+                    <input asp-for="RoleName" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label">Password</label>
+                    <input asp-for="Password" class="form-control" type="password">
+                    <span class="text-danger" asp-validation-for="Password" type="password"></span>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success mb-4">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("_FooterPartial")
+</body>
+</html>

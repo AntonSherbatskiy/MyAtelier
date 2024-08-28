@@ -1,0 +1,61 @@
+@model Application.Models.SewingOrderDetails
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order details</title>
+    @await Html.PartialAsync("_BootstrapPartial")
+    <link rel="stylesheet" href="~/css/service.css">
+</head>
+<body>
+@await Html.PartialAsync("_HeaderNavStaticPartial")
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="text-center mb-4">Sewing order details</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="serviceName" class="form-label">Name</label>
+                    <input value="@Model.ClothingName Sewing" asp-for="ClothingName" type="text" class="form-control" id="serviceName" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="servicePrice" class="form-label">Price</label>
+                    <input asp-for="OrderModel.Price" type="text" class="form-control" id="servicePrice" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="material">Material</label>
+                    <input asp-for="MaterialName" type="text" class="form-control" id="material" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="size">Size</label>
+                    <input asp-for="ClothingSize" type="text" class="form-control" id="size" readonly="">
+                </div>
+                <div class="mb-3">
+                    <label for="additionalInfo" class="form-label">Additional Information</label>
+                    <textarea asp-for="OrderModel.AdditionalInfo" maxlength="200" class="form-control" id="additionalInfo" readonly rows="4"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="OrderModel.PlacedAt" class="form-label">Placed at</label>
+                    <input asp-for="OrderModel.PlacedAt" class="form-control" readonly/>
+                </div>
+                <div class="mb-5">
+                    <label asp-for="OrderModel.CompletedAt" class="form-label">Completed at</label>
+                    @if (Model.OrderModel.CompletedAt == null)
+                    {
+                        <input value="Not completed at" class="form-control" readonly/>
+                    }
+                    else
+                    {
+                        <input asp-for="OrderModel.CompletedAt" class="form-control" readonly/>
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("_FooterPartial")
+</body>
+</html>

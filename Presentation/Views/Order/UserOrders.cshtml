@@ -1,0 +1,96 @@
+@model IEnumerable<Application.Models.OrderModel>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User orders</title>
+    @await Html.PartialAsync("_BootstrapPartial")
+    <link rel="stylesheet" href="~/css/user-orders.css">
+</head>
+<body>
+
+@await Html.PartialAsync("_HeaderNavStaticPartial")
+
+<div class="container">
+    <h2 class="text-center mb-4 text-primary">User Orders</h2>
+    <div class="table-responsive my-5" style="max-height: 300px; overflow-y: auto;">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Service Name</th>
+                    <th>Status</th>
+                    <th>Clothes Brought</th>
+                    <th>Placed At</th>
+                    <th>Price</th>
+                    <th>Completed At</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr style="height: 50px;">
+                        <td>
+                            @if (order.ServiceType == "Repairing")
+                            {
+                                <span>@order.ClothingName Repairing</span>
+                            }
+                            else
+                            {
+     
+                                <span>@order.ClothingName Sewing</span>
+                            }
+                        </td>
+                        <td>
+                            @order.Status
+                        </td>
+                        <td>
+                            @if (order.IsClothesBrought == null || !order.IsClothesBrought)
+                            {
+                                <span>No</span>
+                            }
+                            else
+                            {
+                                <span>Yes</span>
+                            }
+                        </td>
+                        <td>
+                            @order.PlacedAt
+                        </td>
+                        <td>
+                            @order.Price
+                        </td>
+                        <td>
+                            @if (order.CompletedAt == null)
+                            {
+                                <span>Not completed yet</span>
+                            }
+                            else
+                            {
+                                <span>@order.CompletedAt</span>
+                            }
+                        </td>
+                        <td>
+                            @if (order.ServiceType == "Repairing")
+                            {
+                                <a class="btn btn-primary" type="submit" asp-route-id="@order.Id" asp-route-serviceType="repairing" asp-controller="Order" asp-action="GetOrderDetailsPage">Details</a>
+                            }
+                            else
+                            {
+                                <a class="btn btn-primary" type="submit" asp-route-id="@order.Id" asp-route-serviceType="sewing" asp-controller="Order" asp-action="GetOrderDetailsPage">Details</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@await Html.PartialAsync("_FooterPartial")
+
+<script src="~/js/user-info.js"></script>
+</body>
+</html>
+

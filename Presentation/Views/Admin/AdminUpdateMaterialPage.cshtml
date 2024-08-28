@@ -1,0 +1,77 @@
+@model Application.Models.MaterialModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update material</title>
+    @await Html.PartialAsync("_BootstrapPartial")
+    <style>
+        .center-text {
+            text-align: center;
+        }
+        
+        .style-n ul li {
+            list-style-type: none;
+        }
+        
+        .column-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        html {
+            height: 100%;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        
+        .text-bigger {
+            font-size: 18px;
+        }
+        
+        .navbar-custom .navbar-brand {
+            color: #fff;
+        }
+        .navbar-custom .navbar-nav .nav-link {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+@await Html.PartialAsync("_AdminHeaderPartial")
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="text-center mb-4">Update material</h2>
+            <div asp-validation-summary="ModelOnly" class="center-text text-danger style-n h4"></div>
+            <form asp-controller="Material" asp-action="UpdateMaterial">
+                <input asp-for="Id" class="d-none">
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label">Material name</label>
+                    <input asp-for="Name" type="text" readonly class="form-control" id="materialName">
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Quantity" class="form-label">Quantity</label>
+                    <input asp-for="Quantity" type="number" class="form-control" id="quantity">
+                    <span class="text-danger" asp-validation-for="Quantity"></span>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success mb-4">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("_FooterPartial")
+</body>
+</html>

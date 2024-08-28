@@ -1,0 +1,10 @@
+POST localhost:5098/Authentication/register
+Content-Type: application/json
+
+{
+  "FirstName": "Anton",
+  "LastName": "Sherbatskiy",
+  "Email": "sherbatsskiy@gmail.com",
+  "Password": "qwerty1111",
+  "ConfirmedPassword": "qwerty1111"
+}

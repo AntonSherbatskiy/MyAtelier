@@ -1,0 +1,33 @@
+.center-text {
+    text-align: center;
+}
+
+.column-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.text-bigger {
+    font-size: 18px;
+}
+
+.text-dec-none {
+    text-decoration: none;
+    color: black;
+}
+
+.grayscale-contrast {
+    filter: grayscale(100%) contrast(150%);
+}
+
+.grayscale {
+    filter: grayscale(100%);
+}
+
+.navbar-custom .navbar-brand {
+    color: #fff;
+}
+.navbar-custom .navbar-nav .nav-link {
+    color: #fff;
+}

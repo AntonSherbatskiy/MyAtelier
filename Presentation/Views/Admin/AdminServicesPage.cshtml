@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin page</title>
+    @await Html.PartialAsync("_BootstrapPartial")
+    <link rel="stylesheet" href="~/css/admin-services.css">
+</head>
+<body>
+@await Html.PartialAsync("_AdminHeaderPartial")
+
+<div class="container d-flex flex-column justify-content-center">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center mb-4">
+            <h2 class="mb-4">Services types</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5 col-xl-5 mb-4">
+            <div class="shadow-sm card border-2 border-primary h-100 column-image">
+                <a asp-controller="Admin" asp-action="GetAdminSewingServicesPage" class="text-dec-none">
+                    <img src="~/sewing.png" class="card-img-top" alt="Sewing services">
+                    <div class="center-text card-body d-flex flex-column">
+                        <h5 class="card-title mb-3">Sewing</h5>
+                        <p class="text-muted card-text flex-grow-1">Sew your clothes in the shortest possible time</p>
+                        <a asp-controller="Admin" asp-action="GetAdminSewingServicesPage" class="btn btn-primary mt-3">About</a>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-5 col-xl-5 mb-4">
+            <div class="shadow-sm card border-2 border-primary h-100 column-image">
+                <a asp-controller="Admin" asp-action="GetAdminRepairingServicesPage" class="text-decoration-none text-black">
+                    <img src="~/repairing.png" class="card-img-top" alt="Service 2">
+                    <div class="center-text card-body d-flex flex-column">
+                        <h5 class="card-title mb-3">Repairing</h5>
+                        <p class="text-muted card-text flex-grow-1">Repair your clothes as quickly as possible</p>
+                        <a asp-controller="Admin" asp-action="GetAdminRepairingServicesPage" class="btn btn-primary mt-3">About</a>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@await Html.PartialAsync("_FooterPartial")
+</body>
+</html>

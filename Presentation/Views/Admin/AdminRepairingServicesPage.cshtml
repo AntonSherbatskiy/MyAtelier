@@ -1,0 +1,61 @@
+@model IEnumerable<Application.Models.RepairingServiceModel>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin page</title>
+    @await Html.PartialAsync("_BootstrapPartial")
+    <link rel="stylesheet" href="~/css/admin-repairing-services.css">
+</head>
+<body>
+
+@await Html.PartialAsync("_AdminHeaderPartial")
+
+<div class="container text-center">
+    <h2 class="text-center mb-4 text-primary">Repairing Services</h2>
+    <div asp-validation-summary="ModelOnly" class="text-danger h2 text-dec-none"></div>
+    <div class="table-responsive my-5" style="max-height: 300px; overflow-y: auto;">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Service Name</th>
+                <th>Estimated completion time</th>
+                <th>Price</th>
+                <th>Clothing name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var service in Model)
+            {
+                <tr style="height: 50px;">
+                    <td>
+                        @service.ClothingModel.Name Repairing
+                    </td>
+                    <td>
+                        @service.EstimatedDays
+                    </td>
+                    <td>
+                        @service.Price
+                    </td>
+                    <td>
+                        @service.ClothingModel.Name
+                    </td>
+                    <td>
+                        @service.Description
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" asp-controller="Services" asp-action="RemoveRepairingService" asp-route-id="@service.Id">Remove</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    <a class="btn btn-primary" asp-controller="Admin" asp-action="GetAdminAddRepairingServicePage">Add service</a>
+</div>
+
+@await Html.PartialAsync("_FooterPartial")
+</body>
+</html>
